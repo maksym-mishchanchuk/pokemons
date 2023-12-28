@@ -1,6 +1,13 @@
 import { useForm } from "react-hook-form";
+import {Pokemons} from "../Pokemons/Pokemons";
+import {Pokemon} from "../../types/pokemon";
+import React from "react";
 
-export const  TrainerForm = () => {
+type Props = {
+  pokemons: Pokemon[],
+}
+
+export const  TrainerForm: React.FC<Props> = ({ pokemons }) => {
   const { register, handleSubmit } = useForm();
 
   return (
@@ -15,15 +22,10 @@ export const  TrainerForm = () => {
       </label>
       <input {...register('lastName', { required: true })}/>
 
-      <label htmlFor="pokemonTeam">Виберіть свою команду Pokémon:</label>
-      {/* Ваш компонент вибору Pokemon тут */}
-      {/*<select multiple>*/}
-      {/*  {options.map((pokemon) => (*/}
-      {/*    <option key={pokemon.value} value={pokemon.value}>*/}
-      {/*      {pokemon.label}*/}
-      {/*    </option>*/}
-      {/*  ))}*/}
-      {/*</select>*/}
+      <div>
+
+      </div>
+      <Pokemons pokemons={pokemons} />
 
       <button type="submit">Відправити</button>
     </form>
