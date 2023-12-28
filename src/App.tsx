@@ -1,27 +1,18 @@
-import { useState } from 'react'
+import { TrainerForm } from "./components/TrainerForm";
+import { Modal } from "./components/Modal";
+import {useState} from "react";
+import { Pokemons } from "./components/Pokemons/Pokemons";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedPokemon, setSelectedPokemon] = useState([]);
+
   return (
-    <form action="">
-      <label htmlFor="firstName">
-        Name:
-      </label>
-      <input id="firstName" type="text"/>
-
-      <label htmlFor="lastName">
-       Surname:
-      </label>
-      <input id="lastName" type="text"/>
-
-      <select name="" id="">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="3">4</option>
-      </select>
-
-      <button type="button">Відправити</button>
-    </form>
+    <>
+      <TrainerForm />
+      <Pokemons />
+      <Modal />
+    </>
   )
 }
 
