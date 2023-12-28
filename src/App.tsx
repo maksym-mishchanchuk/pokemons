@@ -7,10 +7,6 @@ import axios from "axios";
 function App() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [pokemons, setPokemons] = useState<Pokemon[] | []>([])
-
-  const closeModal = () => {
-    setIsModalOpen(prevState => !prevState);
-  }
   const getPokemonList = async () => {
     try {
       const response = await axios.get('https://pokeapi.co/api/v2/pokemon');
@@ -27,7 +23,11 @@ function App() {
         console.log(p);
         setPokemons(p)
       })
-  }, [])
+  }, []);
+
+  const closeModal = () => {
+    setIsModalOpen(prevState => !prevState);
+  }
 
   return (
     <>
